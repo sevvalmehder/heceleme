@@ -1,9 +1,11 @@
+#!/usr/bin/env python
+#-*-coding:utf-8-*-
 __author__ = 'teknokrat-as'
 
 def hypo(x):
     i = 0
-    vw = "aeıioöuü"
-    cn = "bcçdfgğhjklmnprsştvyz"
+    vw = "aeıioöuü".decode("utf-8")
+    cn = "bcçdfgğhjklmnprsştvyz".decode("utf-8")
     while i < len(x):
         if x[i] in vw:
             if i + 1 < len(x) and x[i+1] in vw:
@@ -15760,7 +15762,7 @@ sıradüzen
 yolsuzlu^k
 taşınmaz
 amalgam
-"""
+""".decode("utf-8")
 
 verbs = verbs.replace("^", "")
 verbs = verbs.replace("%", "")
