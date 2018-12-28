@@ -1,11 +1,20 @@
 #!/usr/bin/env python
 #-*-coding:utf-8-*-
+import sys
+
 __author__ = 'teknokrat-as'
 
 def hypo(x):
+
     i = 0
-    vw = "aeıioöuü".decode("utf-8")
-    cn = "bcçdfgğhjklmnprsştvyz".decode("utf-8")
+    vw = "aeıioöuü"
+    cn = "bcçdfgğhjklmnprsştvyz"
+
+    
+    if isPython2:
+        vw = vw.decode("utf-8")
+        cn = cn.decode("utf-8")
+    
     while i < len(x):
         if x[i] in vw:
             if i + 1 < len(x) and x[i+1] in vw:
@@ -27,7 +36,11 @@ def hypo(x):
 
     return x
 
-
+# Check python version 
+isPython2 = False;
+if sys.version_info[0] < 3:
+    isPython2 = True 
+    
 verbs ="""
 ben
 masaüstü
@@ -15762,7 +15775,9 @@ sıradüzen
 yolsuzlu^k
 taşınmaz
 amalgam
-""".decode("utf-8")
+"""
+if isPython2:
+    verbs = verbs.decode("utf-8")
 
 verbs = verbs.replace("^", "")
 verbs = verbs.replace("%", "")
